@@ -29,7 +29,7 @@
       <div class="col-xs-10  col-xs-offset-1  col-md-8  col-md-offset-2  push-down-60">
         <!-- Start of the content -->
         <div class="post-content">
-          <h1><%= link_to @post.title, post_path(@post) if @post.title.present?%></h1>
+          <h1><%= link_to @post.title, post_path(@post) if @post.title.present? %></h1>
 
           <p><%= @post.body if @post.body.present? %></p>
         </div>
@@ -54,15 +54,15 @@
         </div>
         <div class="row">
           <!--<div class="col-xs-12  col-sm-6">-->
-            <!--&lt;!&ndash; Start of post author &ndash;&gt;-->
-            <!--<div class="post-author">-->
-              <!--<h6>Written By</h6>-->
-              <!--<hr>-->
-              <!--<img src="images/dummy/about-5.jpg" alt="Post author">-->
-              <!--<h5><a href="#">Danielle Thatcher</a></h5>-->
-              <!--<span class="post-author__text">Interface Designer, Poker Player and Imaginary Breakdancer</span>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; End of post author &ndash;&gt;-->
+          <!--&lt;!&ndash; Start of post author &ndash;&gt;-->
+          <!--<div class="post-author">-->
+          <!--<h6>Written By</h6>-->
+          <!--<hr>-->
+          <!--<img src="images/dummy/about-5.jpg" alt="Post author">-->
+          <!--<h5><a href="#">Danielle Thatcher</a></h5>-->
+          <!--<span class="post-author__text">Interface Designer, Poker Player and Imaginary Breakdancer</span>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; End of post author &ndash;&gt;-->
           <!--</div>-->
           <div class="col-xs-12  col-sm-6">
             <!-- Start of post tags -->
@@ -75,12 +75,11 @@
           </div>
         </div>
 
-          <div id="comments">
+          <div class="row">
             <h2><%= @post.comments.count %> Comments</h2>
             <%= render @post.comments %>
 
             <h3>Add a comment:</h3>
-            <%#= render partial: 'comments/form' %>
 
               <%= form_for([@post, @post.comments.build], :class=> "form-horizontal") do |f| %>
 
@@ -113,16 +112,19 @@
               <% end %>
             </div>
 
+          </div>
+
+
         <!-- Start of related stories -->
         <!--<div class="related-stories">-->
-          <!--<h6>Related Stories</h6>-->
-          <!--<hr>-->
-          <!--<%# if @related_posts.present? %>-->
-              <!--<%# @related_posts.each do |post| %>-->
-                  <!--<h4><%#= link_to post.title, post_path(post) %></h4>-->
-                  <!--<hr />-->
-              <!--<%# end %>-->
-          <!--<%# end %>-->
+        <!--<h6>Related Stories</h6>-->
+        <!--<hr>-->
+        <!--<%# if @related_posts.present? %>-->
+        <!--<%# @related_posts.each do |post| %>-->
+        <!--<h4><%#= link_to post.title, post_path(post) %></h4>-->
+        <!--<hr />-->
+        <!--<%# end %>-->
+        <!--<%# end %>-->
         <!--</div>-->
         <!-- End of related stories -->
       </div>

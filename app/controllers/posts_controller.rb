@@ -14,6 +14,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     #@related_posts = Post.where(:category_id => @post.category.id, :is_published => true)
+    @categories = Category.all
+    @header_menu = Menu.menu_list_by_menu_type(Menu::MENU_TYPE[:top_header])
+    @comments = Comment.all
   end
 
   def post_by_category
