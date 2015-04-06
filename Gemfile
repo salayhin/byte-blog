@@ -45,4 +45,5 @@ end
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-
+gem 'carrierwave', '~> 0.10.0'
+gem 'rmagick', '~> 2.14.0'
