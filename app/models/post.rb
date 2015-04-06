@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
 
   belongs_to :category
+  has_many :comments
   acts_as_taggable
 
   # Post's logo uploader
