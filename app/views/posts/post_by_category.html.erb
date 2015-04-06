@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12  col-md-8">
+      <!-- Post with featured image -->
+      <% if @posts.present? %>
+          <% @posts.each do |post| %>
+              <div class="boxed  sticky  push-down-45">
+                <!-- Featured image and meta start -->
+                <div class="meta">
+                  <% if post.feature_image.present? %>
+                      <%= image_tag post.feature_image_url(:main) %>
+                  <% end %>
+                  <div class="meta__container">
+                    <div class="row">
+                      <div class="col-xs-12  col-sm-8">
+                        <div class="meta__info">
+                      <span class="meta__author">
+                        <%#= image_tag 'dummy/about-5.jpg', width: 30, height: 30 %>
+                        <a href="#">Admin</a> in <%= link_to post.category.name, '' %></span>
+                          <span class="meta__date"><span class="glyphicon glyphicon-calendar"></span> &nbsp; <%= post.created_at.strftime("%d %B, %Y") %></span>
+                        </div>
+                      </div>
+                      <div class="col-xs-12  col-sm-4">
+                        <div class="meta__comments">
+                          <span class="glyphicon glyphicon-comment"></span> &nbsp; <a href="single-post.html#disqus_thread"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Featured image and meta end -->
+                <div class="sticky__box">
+                  <span class="sticky__circle"></span>
+                  <span class="sticky__circle"></span>
+                  <span class="sticky__circle"></span>
+                  <span class="sticky__circle"></span>
+                </div>
+                <!-- Start of the blogpost -->
+                <div class="row">
+                  <div class="col-xs-10  col-xs-offset-1">
+                    <!-- Start of the content -->
+                    <div class="post-content--front-page">
+                      <h2 class="front-page-title"><%= link_to post.title, post_path(post) if post.title.present?%></h2>
+
+                      <p><%= post.body if post.body.present? %></p>
+                    </div>
+                    <!-- End of the content -->
+                    <%= link_to post_path(post) do  %>
+                        <div class="read-more">
+                          Continue reading
+                          <div class="read-more__arrow">
+                            <span class="glyphicon  glyphicon-chevron-right"></span>
+                          </div>
+                        </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+    <%= render partial: 'shared/sidebar' %>
+  </div>
+
+</div>
+</div>

@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   #devise_for :users
 
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'category/:category', to: 'posts#post_by_category', as: :category
+
   resources :posts do
     resources :comments
   end
+
   root 'posts#index'
 
 end

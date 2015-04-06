@@ -63,70 +63,52 @@
         <ul class="navigation">
 
 
-          <li class="dropdown  active">
-            <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+          <!--<li class="dropdown  active">-->
+            <!--<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>-->
 
-            <ul class="navigation__dropdown">
+            <!--<ul class="navigation__dropdown">-->
 
-              <li><a href="index.html">Home (Sidebar)</a></li>
+              <!--<li><a href="index.html">Home (Sidebar)</a></li>-->
 
-              <li><a href="home-slider.html">Home (Slider)</a></li>
+              <!--<li><a href="home-slider.html">Home (Slider)</a></li>-->
 
-              <li><a href="home-multi-columns.html">Home (Multi Columns)</a></li>
+              <!--<li><a href="home-multi-columns.html">Home (Multi Columns)</a></li>-->
 
-              <li><a href="home-ads.html">Home (With Ads)</a></li>
+              <!--<li><a href="home-ads.html">Home (With Ads)</a></li>-->
 
-              <li><a href="home-no-sidebar.html">Home (No Sidebar)</a></li>
+              <!--<li><a href="home-no-sidebar.html">Home (No Sidebar)</a></li>-->
 
-              <li><a href="home-full-width.html">Home (Full Width)</a></li>
+              <!--<li><a href="home-full-width.html">Home (Full Width)</a></li>-->
 
-            </ul>
+            <!--</ul>-->
 
-          </li>
-
-
-          <li class="dropdown">
-            <a href="single-post.html" class="dropdown-toggle" data-toggle="dropdown">Post formats</a>
-
-            <ul class="navigation__dropdown">
-
-              <li><a href="single-post.html">Single Post</a></li>
-
-              <li><a href="single-post-without-image.html">Single Post (No Image)</a></li>
-
-              <li><a href="single-post-video.html">Single Post (Video)</a></li>
-
-              <li><a href="single-post-full-width.html">Single Post (Full Width Image)</a></li>
-
-              <li><a href="search-results.html">Search Results</a></li>
-
-            </ul>
-
-          </li>
+          <!--</li>-->
 
 
-          <li class="">
-            <a href="elements.html" class="dropdown-toggle" data-toggle="dropdown">Elements</a>
+          <!--<li class="dropdown">-->
+            <!--<a href="single-post.html" class="dropdown-toggle" data-toggle="dropdown">Post formats</a>-->
 
-          </li>
+            <!--<ul class="navigation__dropdown">-->
 
+              <!--<li><a href="single-post.html">Single Post</a></li>-->
 
-          <li class="">
-            <a href="features.html" class="dropdown-toggle" data-toggle="dropdown">Features</a>
+              <!--<li><a href="single-post-without-image.html">Single Post (No Image)</a></li>-->
 
-          </li>
+              <!--<li><a href="single-post-video.html">Single Post (Video)</a></li>-->
 
+              <!--<li><a href="single-post-full-width.html">Single Post (Full Width Image)</a></li>-->
 
-          <li class="">
-            <a href="about-us.html" class="dropdown-toggle" data-toggle="dropdown">About</a>
+              <!--<li><a href="search-results.html">Search Results</a></li>-->
 
-          </li>
+            <!--</ul>-->
 
+          <!--</li>-->
 
-          <li class="">
-            <a href="contact.html" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
-
-          </li>
+          <% @header_menu.each do |menu| %>
+              <li class="">
+                <a href="<%= menu.url %>" class="dropdown-toggle" data-toggle="dropdown"><%= menu.title %></a>
+              </li>
+          <% end %>
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -151,19 +133,19 @@
   </div>
 </header>
 
-<!-- Search - Open panel -->
-<div class="search-panel">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <form action="search-results.html">
-          <input type="text" class="search-panel__form  js--search-panel-text" placeholder="Begin typing for search">
-          <p class="search-panel__text">Press enter to see results or esc to cancel.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+<!--&lt;!&ndash; Search - Open panel &ndash;&gt;-->
+<!--<div class="search-panel">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-xs-12">-->
+        <!--<form action="search-results.html">-->
+          <!--<input type="text" class="search-panel__form  js--search-panel-text" placeholder="Begin typing for search">-->
+          <!--<p class="search-panel__text">Press enter to see results or esc to cancel.</p>-->
+        <!--</form>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 <%= yield %>
 

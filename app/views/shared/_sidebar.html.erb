@@ -22,19 +22,10 @@
         <div class="widget-categories  push-down-30">
           <h6>Categories</h6>
           <ul>
-            <li><a href="#">Technology &nbsp;<span class="widget-categories__text">(16)</span></a></li>
-            <li><a href="#">User Interface design &nbsp;<span class="widget-categories__text">(13)</span></a></li>
-            <li><a href="#">User Experience &nbsp;<span class="widget-categories__text">(9)</span></a></li>
-            <li><a href="#">Startups &nbsp;<span class="widget-categories__text">(23)</span></a></li>
-            <li><a href="#">Reading &amp; Books &nbsp;<span class="widget-categories__text">(3)</span></a></li>
+            <% @categories.each do |category| %>
+                <li><a href="<%= category_path(category.id) %>"><%= category.name %> &nbsp;<span class="widget-categories__text">(<%= count_category_posts(category.id) %>)</span></a></li>
+            <% end %>
           </ul>
-        </div>
-        <!-- Widget featured post -->
-        <div class="widget-featured-post  push-down-30">
-          <h6>Featured post</h6>
-          <%#= image_tag 'dummy-licensed/blog-image.jpg', width: 293, height: 127 %>
-          <h4><a href="single-post.html">Featured Author Post</a></h4>
-          <p>Why ProteusThemes products is so much better than lorem everyone else's.</p>
         </div>
         <!-- Widget Facebook -->
         <div class="widget-facebook  push-down-30">
@@ -52,60 +43,56 @@
           </div>
         </div>
         <!-- Widget posts -->
-        <div class="widget-posts  push-down-30">
-          <h6>Popular / Recent</h6>
-          <!-- Nav tabs -->
-          <ul class="nav  nav-tabs">
-            <li class="active"><a href="#recent-posts" data-toggle="tab"><span class="glyphicon  glyphicon-time"></span> &nbsp;Recent Posts</a></li>
-            <li><a href="#popular-posts" data-toggle="tab"><span class="glyphicon  glyphicon-flash"></span> &nbsp;Popular Posts</a></li>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane  fade  in  active" id="recent-posts">
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>
+        <!--<div class="widget-posts  push-down-30">-->
+          <!--<h6>Popular / Recent</h6>-->
+          <!--&lt;!&ndash; Nav tabs &ndash;&gt;-->
+          <!--<ul class="nav  nav-tabs">-->
+            <!--<li class="active"><a href="#recent-posts" data-toggle="tab"><span class="glyphicon  glyphicon-time"></span> &nbsp;Recent Posts</a></li>-->
+            <!--<li><a href="#popular-posts" data-toggle="tab"><span class="glyphicon  glyphicon-flash"></span> &nbsp;Popular Posts</a></li>-->
+          <!--</ul>-->
+          <!--&lt;!&ndash; Tab panes &ndash;&gt;-->
+          <!--<div class="tab-content">-->
+            <!--<div class="tab-pane  fade  in  active" id="recent-posts">-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>-->
 
-                <h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>
-                <span class="widget-posts__time">19 hours ago</span>
-              </div>
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>
-                <h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>
-                <span class="widget-posts__time">19 hours ago</span>
-              </div>
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>
-                <h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>
-                <span class="widget-posts__time">19 hours ago</span>
-              </div>
-            </div>
-            <div class="tab-pane  fade" id="popular-posts">
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>
-                <h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>
-                <span class="widget-posts__time">9 hours ago</span>
-              </div>
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>
-                <h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>
-                <span class="widget-posts__time">12 hours ago</span>
-              </div>
-              <div class="push-down-15">
-                <%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>
-                <h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>
-                <span class="widget-posts__time">19 hours ago</span>
-              </div>
-            </div>
-          </div>
-        </div>
+                <!--<h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>-->
+                <!--<span class="widget-posts__time">19 hours ago</span>-->
+              <!--</div>-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>-->
+                <!--<h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>-->
+                <!--<span class="widget-posts__time">19 hours ago</span>-->
+              <!--</div>-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>-->
+                <!--<h5><a href="single-post.html">This is a showcase of the most recent posts</a></h5>-->
+                <!--<span class="widget-posts__time">19 hours ago</span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane  fade" id="popular-posts">-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>-->
+                <!--<h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>-->
+                <!--<span class="widget-posts__time">9 hours ago</span>-->
+              <!--</div>-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-small.jpg' %>-->
+                <!--<h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>-->
+                <!--<span class="widget-posts__time">12 hours ago</span>-->
+              <!--</div>-->
+              <!--<div class="push-down-15">-->
+                <!--<%#= image_tag 'dummy-licensed/blog-image-3-small.jpg' %>-->
+                <!--<h5><a href="single-post.html">This is a showcase of the most popular posts</a></h5>-->
+                <!--<span class="widget-posts__time">19 hours ago</span>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
         <div class="tags  widget-tags">
           <h6>Tags</h6>
           <hr>
-          <a href="#" class="tags__link">Tech</a>
-          <a href="#" class="tags__link">Web</a>
-          <a href="#" class="tags__link">UI/UX</a>
-          <a href="#" class="tags__link">Tutorials</a>
-          <a href="#" class="tags__link">Workflow</a>
+          <%= raw ActsAsTaggableOn::Tag.all.map { |t| link_to t, tag_path(t), :class => 'tags__link' }.join(' ') %>
         </div>
         <!-- Widget Twitter -->
         <div class="widget-twitter  push-down-30">
@@ -116,15 +103,12 @@
         <div class="widget-recent-comments  push-down-30">
           <h6>Recent Comments</h6>
           <ul>
-            <li>
-              Mihael on <a href="single-post.html#comments">ProteusThemes and its products are great</a><br/>
-            </li>
-            <li>
-              Jaka on <a href="single-post.html#comments">Readable is most readable WordPress theme out there</a>
-            </li>
-            <li>
-              Mihael on <a href="single-post.html#comments">Everybody loves Readable</a>
-            </li>
+            <% @comments.each do |comment| %>
+                <li>
+                  <%= comment.name %> on <a href="<%= post_path(comment.post) %>"><%= comment.body %></a><br/>
+                </li>
+            <% end %>
+
           </ul>
         </div>
 
