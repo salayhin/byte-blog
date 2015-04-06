@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="boxed  push-down-60">
+    <!-- Featured image and meta start -->
+    <div class="meta">
+      <% if @post.feature_image.present? %>
+          <%= image_tag @post.feature_image_url(:large) %>
+      <% end %>
+      <div class="meta__container">
+        <div class="row">
+          <div class="col-xs-12  col-sm-8">
+            <div class="meta__info">
+              <span class="meta__author">
+                <!--<img src="images/dummy/about-5.jpg" alt="Meta avatar" width="30" height="30"> -->
+                <a href="#">Admin</a> in <a href="#"><%= link_to @post.category.name, '' %></a></span>
+              <span class="meta__date"><span class="glyphicon glyphicon-calendar"></span> &nbsp; <%= @post.created_at.strftime("%d %B, %Y") %></span>
+            </div>
+          </div>
+          <div class="col-xs-12  col-sm-4">
+            <div class="meta__comments">
+              <span class="glyphicon glyphicon-comment"></span> &nbsp; <a href="single-post.html#disqus_thread"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Featured image and meta end -->
+    <!-- Start of the blogpost -->
+    <div class="row">
+      <div class="col-xs-10  col-xs-offset-1  col-md-8  col-md-offset-2  push-down-60">
+        <!-- Start of the content -->
+        <div class="post-content">
+          <h1><%= link_to @post.title, post_path(@post) if @post.title.present?%></h1>
+
+          <p><%= @post.body if @post.body.present? %></p>
+        </div>
+        <!-- End of the content -->
+        <div class="row">
+          <div class="col-xs-12  col-sm-6">
+            <!-- Start of comments button -->
+            <div class="post-comments">
+              <a class="btn  btn-primary" href="single-post.html#disqus_thread"></a>
+            </div>
+            <!-- End of comments button -->
+          </div>
+          <div class="col-xs-12  col-sm-6">
+            <!-- Start of social icons -->
+            <div class="social-icons">
+              <a href="#" class="social-icons__container"><span class="zocial-facebook"></span></a>
+              <a href="#" class="social-icons__container"><span class="zocial-twitter"></span></a>
+              <a href="#" class="social-icons__container"><span class="zocial-email"></span></a>
+            </div>
+            <!-- End of social icons -->
+          </div>
+        </div>
+        <div class="row">
+          <!--<div class="col-xs-12  col-sm-6">-->
+            <!--&lt;!&ndash; Start of post author &ndash;&gt;-->
+            <!--<div class="post-author">-->
+              <!--<h6>Written By</h6>-->
+              <!--<hr>-->
+              <!--<img src="images/dummy/about-5.jpg" alt="Post author">-->
+              <!--<h5><a href="#">Danielle Thatcher</a></h5>-->
+              <!--<span class="post-author__text">Interface Designer, Poker Player and Imaginary Breakdancer</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; End of post author &ndash;&gt;-->
+          <!--</div>-->
+          <div class="col-xs-12  col-sm-6">
+            <!-- Start of post tags -->
+            <div class="tags">
+              <h6>Tags</h6>
+              <hr>
+              <%= raw @post.tag_list.map { |t| link_to t, tag_path(t), :class => 'tags__link' }.join(' ') %>
+            </div>
+            <!-- End of post tags -->
+          </div>
+        </div>
+
+        <div class="disqus-comments  push-down-45" id="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'readablehtml'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+
+        <!-- Start of related stories -->
+        <!--<div class="related-stories">-->
+          <!--<h6>Related Stories</h6>-->
+          <!--<hr>-->
+          <!--<%# if @related_posts.present? %>-->
+              <!--<%# @related_posts.each do |post| %>-->
+                  <!--<h4><%#= link_to post.title, post_path(post) %></h4>-->
+                  <!--<hr />-->
+              <!--<%# end %>-->
+          <!--<%# end %>-->
+        <!--</div>-->
+        <!-- End of related stories -->
+      </div>
+    </div>
+    <!-- End of the blogpost -->
+  </div>
+</div>

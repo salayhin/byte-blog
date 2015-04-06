@@ -1,17 +1,3 @@
-/*
-Theme Name: Drop Resume
-Theme URI: http://dropresume.com
-Author: Md Sirajus Salayhin
-Author URI: http://salayhin.wordpress.com
-Description: Drop Resume Blog Theme
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
 
 /*------------------------------------*\
     Project Name
@@ -10264,8 +10250,8 @@ body.search-mode .search-panel {
     font-family: 'zocial';
     font-style: normal;
     font-weight: normal;
-    src: url("../assets/zocial/css/zocial-regular-webfont.eot");
-    src: url("../assets/zocial/css/zocial-regular-webfont.eot?#iefix") format("eot"), url("../assets/zocial/css/zocial-regular-webfont.woff") format("woff"), url("../assets/zocial/css/zocial-regular-webfont.ttf") format("truetype"), url("../assets/zocial/css/zocial-regular-webfont.svg#zocialregular") format("svg");
+    src: url("zocial-regular-webfont.eot");
+    src: url("zocial-regular-webfont.eot") format("eot"), url("zocial-regular-webfont.woff") format("woff"), url("zocial-regular-webfont.ttf") format("truetype"), url("zocial-regular-webfont.svg") format("svg");
 }
 
 /* line 12, ../sass/components/_zocial-icons.scss */
@@ -10853,7 +10839,7 @@ body.search-mode .search-panel {
     display: block;
     width: 100%;
     height: 100%;
-    background: url('images/icon-play.png?1397477309') no-repeat center center;
+    background: url('../images/icon-play.png?1397477309') no-repeat center center;
 }
 
 /*------------------------------------*\

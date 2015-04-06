@@ -37,6 +37,10 @@ class FetureImageUploader < CarrierWave::Uploader::Base
   #   process :resize_to_fit => [50, 50]
   # end
 
+  version :large do
+    process resize_to_fill: [1038, 493]
+  end
+
   version :main do
     process resize_to_fill: [748, 324]
   end

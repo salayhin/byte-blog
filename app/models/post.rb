@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   # Post's logo uploader
   mount_uploader :feature_image, FetureImageUploader
 
-  validate :title
-  validate :body
+  validates_presence_of :title
+  validates_presence_of :body
+
+  scope :published_posts, -> { where(is_published: true) }
 end
