@@ -7,20 +7,24 @@
             <div class="contact">
               <h2>Contact Us</h2>
               <p class="contact__text">Ut ullamcorper, risus a rhoncus fringilla, dui nisl viverra nunc, quis consectetur massa purus a nulla. Quisque adipiscing, eros eget molestie feugiat, dui sem laoreet est, nec convallis dolor erat et tellus.</p>
-              <form action="">
+              <%= render partial: 'shared/flash_messages', flash: flash %>
+              <%= form_for @contact, :url => contact_us_submit_path do |f| %>
                 <div class="row">
                   <div class="col-xs-6">
-                    <input type="text" placeholder="Your Name">
+                    <%= f.text_field :name, :placeholder => 'Your Name' %>
                   </div>
                   <div class="col-xs-6">
-                    <input type="text" placeholder="E-mail Address">
+                    <%= f.email_field :email, :placeholder => 'Your Email' %>
                   </div>
                   <div class="col-xs-12">
-                    <textarea rows="6" type="text" placeholder="Your Message"></textarea>
-                    <a href="#" class="btn  btn-primary">Send Message</a>
+                    <%= f.text_area :message, :rows => 6, :placeholder => 'Your Message' %>
                   </div>
+                  <div class="col-xs-3">
+                    <%= f.submit 'Send Message', :class => 'btn  btn-primary' %>
+                  </div>
+
                 </div>
-              </form>
+              <% end %>
             </div>
           </div>
         </div>
