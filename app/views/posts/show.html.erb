@@ -31,7 +31,7 @@
         <div class="post-content">
           <h1><%= link_to @post.title, post_path(@post) if @post.title.present? %></h1>
 
-          <p><%= @post.body if @post.body.present? %></p>
+          <p><%= @post.body.html_safe if @post.body.present? %></p>
         </div>
         <!-- End of the content -->
         <div class="row">

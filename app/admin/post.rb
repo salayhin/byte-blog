@@ -31,7 +31,9 @@ ActiveAdmin.register Post do
     attributes_table do
       row :name
       row :category
-      row :body
+      row 'Body' do |post|
+        post.body.html_safe
+      end
       row 'Tags' do |post|
         #post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
         post.tag_list.map { |t| t }.join(', ')
@@ -48,7 +50,7 @@ ActiveAdmin.register Post do
     f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :title
-      f.input :body
+      f.input :body, as: :ckeditor, input_html: { palceholder: 'Content' }
       f.input :category
       f.input :tag_list
       #f.input :description, as: :ckeditor, input_html: { palceholder: 'Content' }
