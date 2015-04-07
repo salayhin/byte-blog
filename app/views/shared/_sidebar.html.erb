@@ -92,7 +92,7 @@
         <div class="tags  widget-tags">
           <h6>Tags</h6>
           <hr>
-          <%= raw ActsAsTaggableOn::Tag.all.map { |t| link_to t, tag_path(t), :class => 'tags__link' }.join(' ') %>
+          <%= raw ActsAsTaggableOn::Tag.all.map { |t| link_to t.name, tag_path(t.name), :class => 'tags__link' }.join(' ') %>
         </div>
         <!-- Widget Twitter -->
         <div class="widget-twitter  push-down-30">

@@ -167,11 +167,8 @@
       <div class="tags  widget-tags">
         <h6>Tags</h6>
         <hr>
-        <a href="#" class="tags__link">Tech</a>
-        <a href="#" class="tags__link">Web</a>
-        <a href="#" class="tags__link">UI/UX</a>
-        <a href="#" class="tags__link">Tutorials</a>
-        <a href="#" class="tags__link">Workflow</a>
+
+        <%= raw ActsAsTaggableOn::Tag.all.map { |t| link_to t.name, tag_path(t.name), :class => 'tags__link' }.join(' ') %>
       </div>
     </div>
     <div class="col-xs-12  col-md-3">
@@ -179,11 +176,11 @@
         <h6>Navigation</h6>
         <hr>
         <ul class="navigation">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="single-post.html">Post Formats</a></li>
-          <li><a href="elements.html">Elements</a></li>
-          <li><a href="about-us.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <% @header_menu.each do |menu| %>
+              <li class="">
+                <a href="<%= menu.url %>"><%= menu.title %></a>
+              </li>
+          <% end %>
         </ul>
       </nav>
     </div>

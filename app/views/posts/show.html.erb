@@ -11,7 +11,7 @@
             <div class="meta__info">
               <span class="meta__author">
                 <!--<img src="images/dummy/about-5.jpg" alt="Meta avatar" width="30" height="30"> -->
-                <a href="#">Admin</a> in <a href="#"><%= link_to @post.category.name, '' %></a></span>
+                <a href="#">Admin</a> in <a href="#"><%= link_to @post.category.name, category_path(@post.category) %></a></span>
               <span class="meta__date"><span class="glyphicon glyphicon-calendar"></span> &nbsp; <%= @post.created_at.strftime("%d %B, %Y") %></span>
             </div>
           </div>
