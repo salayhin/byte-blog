@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="ProteusThemes">
-  <link rel="shortcut icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/images/favicon.png">
   <title>Blog</title>
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -34,7 +33,6 @@
           s.parentNode.insertBefore(wf, s);
       })();
   </script>
-  <?php wp_head(); ?>
 </head>
 
 <body>
@@ -56,22 +54,18 @@
       </button>
     </div>
 
-
     <nav class="navbar  navbar-default" role="navigation">
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse  navbar-collapse" id="readable-navbar-collapse">
         <ul class="navigation">
-
           <% @header_menu.each do |menu| %>
               <li class="">
-                <a href="<%= menu.url %>" ><%= menu.title %></a>
+                <a href="<%= menu.url %>"><%= menu.title %></a>
               </li>
           <% end %>
-
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
-
 
     <div class="hidden-xs  hidden-sm">
       <!--<a href="#" class="search__container  js--toggle-search-mode">-->
@@ -90,21 +84,6 @@
 
   </div>
 </header>
-
-<!--&lt;!&ndash; Search - Open panel &ndash;&gt;-->
-<!--<div class="search-panel">-->
-  <!--<div class="container">-->
-    <!--<div class="row">-->
-      <!--<div class="col-xs-12">-->
-        <!--<form action="search-results.html">-->
-          <!--<input type="text" class="search-panel__form  js--search-panel-text" placeholder="Begin typing for search">-->
-          <!--<p class="search-panel__text">Press enter to see results or esc to cancel.</p>-->
-        <!--</form>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-
 <%= yield %>
 
 <footer class="footer">
