@@ -24,17 +24,6 @@ ssh_options[:host_key] = 'ssh-dss'
 ssh_options[:paranoid] = false
 ssh_options[:forward_agent] = true
 
-# start of block for first time deploy. comment it out after running cap deploy:cold
-# this is the default "cap deploy" config section
-set :branch, 'development'
-set :deploy_to, '/home/deployer/apps/dropresume-blog/'
-set :rails_env, 'staging'
-web_server = '128.199.188.61'
-set :application, web_server
-role :web, web_server                          # Your HTTP server, Apache/etc
-role :app, web_server                          # This may be the same as your `Web` server
-role :db,  web_server, :primary => true        # This is where Rails migrations will run
-
 # end of default configuration
 task :link_shared_files, :roles => :app do
   run "rm -rf #{current_path}/public/uploads; ln -s #{shared_path}/uploads #{current_path}/public/uploads"
@@ -42,19 +31,20 @@ end
 
 task :production do
   set :branch, 'master'
-  set :deploy_to, '/home/deployer/apps/dropresume-blog-production/'
+  set :deploy_to, '/home/deployer/apps/dropresume-blog/'
   set :rails_env, 'production'
-  web_server = ''
+  web_server = '104.131.62.206'
   set :application, web_server
   set :application, web_server
   role :web, web_server                          # Your HTTP server, Apache/etc
   role :app, web_server                          # This may be the same as your `Web` server
   role :db,  web_server, :primary => true        # This is where Rails migrations will run
+  set :keep_releases, 5
 end
 
 task :staging do
   set :branch, 'development'
-  set :deploy_to, '/home/deployer/apps/dropresume-blog-staging/'
+  set :deploy_to, '/home/deployer/apps/dropresume-blog/'
   set :rails_env, 'staging'
   web_server = '128.199.188.61'
   set :application, web_server
