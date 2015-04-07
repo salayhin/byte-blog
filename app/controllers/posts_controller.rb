@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     #@related_posts = Post.where(:category_id => @post.category.id, :is_published => true)
     @categories = Category.all
     @header_menu = Menu.menu_list_by_menu_type(Menu::MENU_TYPE[:top_header])
@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   end
 
   def post_by_category
-    @posts = Post.where(:category_id => params[:category], :is_published => true).order('id DESC')
+    category = Category.friendly.find(params[:category])
+    @posts = Post.where(:category_id => category.id, :is_published => true).order('id DESC')
 
     @categories = Category.all
     @header_menu = Menu.menu_list_by_menu_type(Menu::MENU_TYPE[:top_header])

@@ -42,7 +42,7 @@
                     <div class="post-content--front-page">
                       <h2 class="front-page-title"><%= link_to post.title, post_path(post) if post.title.present?%></h2>
 
-                      <p><%= post.body if post.body.present? %></p>
+                      <p><%= post.body.html_safe if post.body.present? %></p>
                     </div>
                     <!-- End of the content -->
                     <%= link_to post_path(post) do  %>

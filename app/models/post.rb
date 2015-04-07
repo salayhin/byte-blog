@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+
   require 'carrierwave/orm/activerecord'
 
   belongs_to :category
@@ -12,4 +14,6 @@ class Post < ActiveRecord::Base
   validates_presence_of :body
 
   scope :published_posts, -> { where(is_published: true).order('id DESC') }
+
+  friendly_id :title, use: [:slugged, :history]
 end

@@ -23,7 +23,7 @@
           <h6>Categories</h6>
           <ul>
             <% @categories.each do |category| %>
-                <li><a href="<%= category_path(category.id) %>"><%= category.name %> &nbsp;<span class="widget-categories__text">(<%= count_category_posts(category.id) %>)</span></a></li>
+                <li><a href="<%= category_path(category) %>"><%= category.name %> &nbsp;<span class="widget-categories__text">(<%= count_category_posts(category.id) %>)</span></a></li>
             <% end %>
           </ul>
         </div>
@@ -32,12 +32,12 @@
           <h6>Facebook</h6>
           <div id="likebox-wrapper">
             <!--[if IE]>
-            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fproteusthemes&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=false&amp;appId=685180284845706"
+            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fudropresume&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=false&amp;appId=1456591877929410"
                     allowTransparency="true">
             </iframe>
             <![endif]-->
             <!--[if !IE]>-->
-            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fproteusthemes&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=false&amp;appId=685180284845706">
+            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fudropresume&amp;width&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=false&amp;appId=1456591877929410">
             </iframe>
             <!--<![endif]-->
           </div>
@@ -95,11 +95,11 @@
           <%= raw ActsAsTaggableOn::Tag.all.map { |t| link_to t.name, tag_path(t.name), :class => 'tags__link' }.join(' ') %>
         </div>
         <!-- Widget Twitter -->
-        <div class="widget-twitter  push-down-30">
-          <h6>Twitter</h6>
-          <a class="twitter-timeline" href="https://twitter.com/ProteusNetCom" data-widget-id="452057937674915840">Tweets by @ProteusNetCom</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
+        <!--<div class="widget-twitter  push-down-30">-->
+          <!--<h6>Twitter</h6>-->
+          <!--<a class="twitter-timeline" href="https://twitter.com/ProteusNetCom" data-widget-id="452057937674915840">Tweets by @ProteusNetCom</a>-->
+          <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+        <!--</div>-->
         <div class="widget-recent-comments  push-down-30">
           <h6>Recent Comments</h6>
           <ul>
@@ -114,16 +114,16 @@
 
         <div class="social-icons  widget-social-icons  push-down-30">
           <h6>Social Icons</h6>
-          <a href="#" class="social-icons__container"><span class="zocial-facebook"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-twitter"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-skype"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-youtube"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-reddit"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-wordpress"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-bitbucket"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-github"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-html5"></span></a>
-          <a href="#" class="social-icons__container"><span class="zocial-meetup"></span></a>
+          <a href="http://www.facebook.com/udropresume" target="_blank" class="social-icons__container"><span class="zocial-facebook"></span></a>
+          <!--<a href="#" class="social-icons__container"><span class="zocial-twitter"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-skype"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-youtube"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-reddit"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-wordpress"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-bitbucket"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-github"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-html5"></span></a>-->
+          <!--<a href="#" class="social-icons__container"><span class="zocial-meetup"></span></a>-->
         </div>
       </div>
     </div>
