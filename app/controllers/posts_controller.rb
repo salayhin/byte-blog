@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     if params[:tag]
       @posts = Post.published_posts.tagged_with(params[:tag])

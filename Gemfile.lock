@@ -116,6 +116,8 @@ GEM
       activesupport (>= 3.2, < 5)
     highline (1.7.1)
     hike (1.2.3)
+    html_truncator (0.4.1)
+      nokogiri (~> 1.5)
     i18n (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -249,6 +251,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   friendly_id (~> 5.1.0)
+  html_truncator (~> 0.2)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
