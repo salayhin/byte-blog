@@ -31,6 +31,9 @@ ActiveAdmin.register Page do
     end
   end
 
+  controller do
+    defaults finder: :find_by_slug
+  end
 
   ####<$ filter options $>####
   filter :name, as: :string

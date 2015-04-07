@@ -77,4 +77,8 @@ ActiveAdmin.register Post do
   filter :category
   filter :is_published, as: :radio
 
+  controller do
+    defaults finder: :find_by_slug
+  end
+
 end
