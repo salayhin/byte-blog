@@ -42,7 +42,7 @@ end
 
 task :production do
   set :branch, 'master'
-  set :deploy_to, '/home/deployer/apps/dropresume-production/'
+  set :deploy_to, '/home/deployer/apps/dropresume-blog-production/'
   set :rails_env, 'production'
   web_server = ''
   set :application, web_server
@@ -52,17 +52,17 @@ task :production do
   role :db,  web_server, :primary => true        # This is where Rails migrations will run
 end
 
-# task :staging do
-#   set :branch, 'development'
-#   set :deploy_to, '/home/deployer/apps/dropresume/'
-#   set :rails_env, 'staging'
-#   web_server = '128.199.188.61'
-#   set :application, web_server
-#   role :web, web_server                          # Your HTTP server, Apache/etc
-#   role :app, web_server                          # This may be the same as your `Web` server
-#   role :db,  web_server, :primary => true        # This is where Rails migrations will run
-#   set :keep_releases, 5
-# end
+task :staging do
+  set :branch, 'development'
+  set :deploy_to, '/home/deployer/apps/dropresume-blog-staging/'
+  set :rails_env, 'staging'
+  web_server = '128.199.188.61'
+  set :application, web_server
+  role :web, web_server                          # Your HTTP server, Apache/etc
+  role :app, web_server                          # This may be the same as your `Web` server
+  role :db,  web_server, :primary => true        # This is where Rails migrations will run
+  set :keep_releases, 5
+end
 
 #If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
