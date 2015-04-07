@@ -1,6 +1,4 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
-
 require 'rvm/capistrano'
 require 'bundler/capistrano'
 

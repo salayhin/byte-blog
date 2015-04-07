@@ -41,6 +41,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'capistrano', '2.14.1'
+  gem 'rvm-capistrano', '1.2.7'
 end
 
 gem 'devise'
@@ -51,5 +53,3 @@ gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'ckeditor'
 gem 'mini_magick'
 gem 'friendly_id', '~> 5.1.0'
-gem 'capistrano',  '~> 3.1'
-gem 'capistrano-rails', '~> 1.1'
