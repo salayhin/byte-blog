@@ -13,7 +13,7 @@ ActiveAdmin.register Post do
     posts.where('is_published  =?', true)
   end
 
-  permit_params :title, :body, :feature_image, :tag_list, :category_id, :is_published
+  permit_params :title, :body, :feature_image, :tag_list, :category_id, :is_published, :page_title, :meta_keyword, :meta_description
 
   index do
     selectable_column
@@ -39,6 +39,9 @@ ActiveAdmin.register Post do
         post.tag_list.map { |t| t }.join(', ')
       end
       row :is_published
+      row :page_title
+      row :meta_keyword
+      row :meta_description
       row 'Feature Image' do |post|
         image_tag(post.feature_image_url(:list)) if post.feature_image.present?
       end
@@ -53,9 +56,11 @@ ActiveAdmin.register Post do
       f.input :body, as: :ckeditor, input_html: { palceholder: 'Content' }
       f.input :category
       f.input :tag_list
-      #f.input :description, as: :ckeditor, input_html: { palceholder: 'Content' }
       f.input :is_published
-      f.input :feature_image, as: :file
+      f.input :page_title
+      f.input :meta_keyword
+      f.input :meta_description
+      f.input :feature_image, as: :file, :hint => image_tag(f.object.feature_image.url(:list))
       f.actions
     end
   end

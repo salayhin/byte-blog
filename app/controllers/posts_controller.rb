@@ -18,6 +18,10 @@ class PostsController < ApplicationController
     @categories = Category.all
     @header_menu = Menu.menu_list_by_menu_type(Menu::MENU_TYPE[:top_header])
     @comments = Comment.all
+
+    @page_title = @post.page_title.present? ? @post.page_title : @post.title
+    @meta_keyword = @post.meta_keyword.present? ? @post.meta_keyword : @post.tag_list.map { |t| t}.join(', ')
+    @meta_description = @post.meta_description.present? ? @post.meta_description : @post.title
   end
 
   def post_by_category
