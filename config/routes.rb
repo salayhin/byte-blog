@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'contact-us', to: 'pages#contact_us', as: :contact_us
   post 'contact-us-submit', to: 'pages#contact_us_submit', as: :contact_us_submit
 
-  resources :posts do
+  resources :posts, path: '' do
     resources :comments
   end
 
