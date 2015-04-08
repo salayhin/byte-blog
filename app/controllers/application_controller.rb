@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
   #   @header_menu = Menu.menu_list_by_menu_type(Menu::MENU_TYPE[:top_header])
   #   @comments = Comment.all
   # end
+
+  def inline_page_seo
+    page_title = BlogConfiguration.find_by_key(BlogConfiguration::KEY[:page_title])
+    meta_keyword = BlogConfiguration.find_by_key(BlogConfiguration::KEY[:meta_keyword])
+    meta_description = BlogConfiguration.find_by_key(BlogConfiguration::KEY[:meta_description])
+
+    @page_title = (page_title.present? && page_title.value.present?) ? page_title.value : ''
+    @meta_keyword = (meta_keyword.present? && meta_keyword.value.present?) ? meta_keyword.value : ActsAsTaggableOn::Tag.all.map { |t| t.name}.join(', ')
+    @meta_description = (meta_description.present? && meta_description.value.present?) ? meta_description.value : ''
+  end
 end
