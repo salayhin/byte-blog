@@ -22,5 +22,11 @@ module Blog
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.to_prepare do
+      Devise::SessionsController.layout 'session'
+      Devise::RegistrationsController.layout 'session'
+      Devise::PasswordsController.layout 'session'
+    end
   end
 end
