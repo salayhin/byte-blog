@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'about-us', to: 'pages#about_us', as: :about_us
   get 'contact-us', to: 'pages#contact_us', as: :contact_us
   post 'contact-us-submit', to: 'pages#contact_us_submit', as: :contact_us_submit
-  get 'feed.rss', to: 'feeds#rss', :format => 'rss'
+  get 'feed.rss', to: 'feeds#rss', format: 'rss', as: :feed
+  get 'blog_api', to: 'posts#blog_api', format: 'json', as: :blog_api
 
   resources :posts, path: '' do
     resources :comments

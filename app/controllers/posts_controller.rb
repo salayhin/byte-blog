@@ -36,4 +36,17 @@ class PostsController < ApplicationController
 
     inline_page_seo
   end
+
+  def blog_api
+    @posts = Post.all
+
+    render :json => @posts.map { |post| {
+               :id => post.id, :title => post.title,
+               :category => post.category.name,
+               :tags => post.tag_list.map { |t| t }.join(', '),
+               :description => post.body.truncate(1000, :separator => ' '),
+               :feature_image => post.feature_image_url(:list)
+           }
+           }
+  end
 end
