@@ -1,6 +1,6 @@
 ActiveAdmin.register BlogConfiguration do
 
-  menu false
+  #menu false
 
   permit_params :key, :value
 
