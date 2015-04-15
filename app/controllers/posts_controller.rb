@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ActionView::Helpers::SanitizeHelper
 
   def index
     if params[:tag]
@@ -44,8 +45,8 @@ class PostsController < ApplicationController
                :id => post.id, :title => post.title,
                :category => post.category.name,
                :tags => post.tag_list.map { |t| t }.join(', '),
-               :description => post.body.truncate(1000, :separator => ' '),
-               :feature_image => post.feature_image_url(:list),
+               :description => strip_tags(post.body.truncate(1000, :separator => ' ')),
+               :feature_image => request.protocol + request.host  + post.feature_image_url(:list),
                :created_date => post.created_at
            }
            }
