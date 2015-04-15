@@ -45,7 +45,8 @@ class PostsController < ApplicationController
                :category => post.category.name,
                :tags => post.tag_list.map { |t| t }.join(', '),
                :description => post.body.truncate(1000, :separator => ' '),
-               :feature_image => post.feature_image_url(:list)
+               :feature_image => post.feature_image_url(:list),
+               :created_date => post.created_at
            }
            }
   end
