@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def blog_api
-    @posts = Post.all
+    @posts = Post.all.order('created_at desc').limit(2)
 
     render :json => @posts.map { |post| {
                 id: post.id,
