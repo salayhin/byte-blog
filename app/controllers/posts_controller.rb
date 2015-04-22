@@ -42,13 +42,15 @@ class PostsController < ApplicationController
     @posts = Post.all
 
     render :json => @posts.map { |post| {
-               :id => post.id, :title => post.title,
-               :category => post.category.name,
-               :tags => post.tag_list.map { |t| t }.join(', '),
-               :description => strip_tags(post.body.truncate(1000, :separator => ' ')),
-               :feature_image => request.protocol + request.host  + post.feature_image_url(:list),
-               :created_date => post.created_at
-           }
-           }
+                id: post.id,
+                title: post.title,
+                post_link: post_url(post),
+                category: post.category.try(:name),
+                tags: post.tag_list.map { |t| t }.join(', '),
+                description: strip_tags(post.body.truncate(1000, :separator => ' ')),
+                feature_image: request.protocol + request.host_with_port  + post.feature_image_url(:main),
+                created_date: post.created_at
+              }
+            }
   end
 end

@@ -49,18 +49,11 @@ ActiveRecord::Schema.define(version: 20150408195631) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "bootsy_image_galleries", force: :cascade do |t|
-    t.integer  "bootsy_resource_id"
-    t.string   "bootsy_resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "bootsy_images", force: :cascade do |t|
-    t.string   "image_file"
-    t.integer  "image_gallery_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "blog_configurations", force: :cascade do |t|
+    t.string   "key"
+    t.text     "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -97,13 +90,6 @@ ActiveRecord::Schema.define(version: 20150408195631) do
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
-
-  create_table "configurations", force: :cascade do |t|
-    t.string   "key"
-    t.text     "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -155,22 +141,6 @@ ActiveRecord::Schema.define(version: 20150408195631) do
     t.string   "page_title"
     t.string   "meta_keyword"
     t.string   "meta_description"
-  end
-
-  create_table "seo", force: :cascade do |t|
-    t.string   "page_title"
-    t.string   "meta_keyword"
-    t.string   "meta_description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "seos", force: :cascade do |t|
-    t.string   "page_title"
-    t.string   "meta_keyword"
-    t.string   "meta_description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
   end
 
   create_table "taggings", force: :cascade do |t|
