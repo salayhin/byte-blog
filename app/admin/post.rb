@@ -15,6 +15,10 @@ ActiveAdmin.register Post do
 
   permit_params :title, :body, :feature_image, :tag_list, :category_id, :is_published, :page_title, :meta_keyword, :meta_description
 
+  after_build do |post|
+    post.admin_user = current_admin_user
+  end
+
   index do
     selectable_column
     # column do |post|
@@ -31,6 +35,9 @@ ActiveAdmin.register Post do
     attributes_table do
       row :name
       row :category
+      row 'Created By' do |post|
+        post.admin_user.try(:email)
+      end
       row 'Body' do |post|
         post.body.html_safe
       end
